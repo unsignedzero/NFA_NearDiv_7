@@ -224,16 +224,11 @@ mod7_s6 (x:xs)
   | x == '9' = mod7_s4 xs
   | otherwise = 0
   
---Support Function
-print_bool :: Bool -> [Char]
-print_bool True = "True"
-print_bool False = "False"  
-
 --Main
 main :: IO()
 main = do
   putStrLn "Near divisibility test"
   putStrLn "Enter a number backwards"
   input_rev_number <- getLine
-  putStrLn $ print_bool $ mod7 "112"
+  putStrLn $ show $ mod7 "112"
   
