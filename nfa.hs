@@ -1,19 +1,32 @@
--- Problem 2 of Ravi's Homework 3b
+-- This NFA was originally from Ravi's Homework set # 3b Problem 2 
+-- The problem was to create a NFA (not code it).
+--
 -- Given a number, as a string, remove one of its digits and check
 -- if it is divisible by 7 (Any digit can be removed but only one)
+-- The number is READ IN backwards.
+--
+-- Created 09-26-2012
+-- Updated 05-20-2013
+-- Version 1.1
+-- Created by unsignedzero (David Tran)
 
 --Define Main
 module Main where
 
--- Front
+-- Front End Call
 mod7 :: [Char] -> Bool
 mod7 [] = True
 mod7 x 
  | y > 0 = True
  | otherwise = False
  where y = mod7_0 x
+
+-- We have fourteen states. The first seven, without removing the digit does
+-- not have an s before the number. The number of the function is the one's
+-- digit and the new number we read becomes the ten's digit. The function we
+-- go to the is remainder when that number is modulus divided by 7.
  
---Back
+-- Back
 mod7_0 :: [Char] -> Int
 mod7_0 [] = 0
 mod7_0 (x:xs)
@@ -118,6 +131,8 @@ mod7_6 (x:xs)
   | x == '8' = mod7_3 xs + mod7_s6 xs
   | x == '9' = mod7_4 xs + mod7_s6 xs
   | otherwise = 0
+
+-- Here are all the state with one digit already removed
 
 mod7_s0 :: [Char] -> Int
 mod7_s0 [] = 1
@@ -224,11 +239,10 @@ mod7_s6 (x:xs)
   | x == '9' = mod7_s4 xs
   | otherwise = 0
   
---Main
+-- Main Function
 main :: IO()
 main = do
   putStrLn "Near divisibility test"
   putStrLn "Enter a number backwards"
   input_rev_number <- getLine
   putStrLn $ show $ mod7 "112"
-  
