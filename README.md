@@ -1,17 +1,21 @@
 # NFA NearDiv 7 #
 
 This is an NFA created to find all numbers (in string form) that are near
-divisible by 7. A number is said to be near divisible iff, when one digit 
+divisible by 7. A number is said to be near divisible iff, when one digit
 is removed, the new remaining number is divisible by 7. In this NFA we read
-the number in backwards.
+the number in backwards. See image below for a picture of the nfa.
 
-Created by unsignedzero (David Tran) originally on 09-26-2012 using 
+Created by unsignedzero (David Tran) originally on 09-26-2012 using
 GHC v 7.4.1.
 
 This code can be executed with runhaskell or manually loaded into ghci.
 The main function to call is mod7.
 
+![nfa image](nfa.png)
+
 # Version/Changelog #
+
+* Added image to the readme
 
 ## 1.1 05-20-2013 #
 * Additional comments added to clarify the code.
